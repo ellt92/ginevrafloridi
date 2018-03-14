@@ -13,12 +13,12 @@ class App extends Component {
                     <S.Banner>
                         <S.Container>
                             <S.NavContainer>
-                                <a href='#/'><h1>Ginevra Floridi</h1></a>
+                                <h1>Ginevra Floridi</h1>
                                 <S.Nav>
-                                    <S.NavItem href='#/'>Home</S.NavItem>
-                                    <S.NavItem href='#/research'>Research</S.NavItem>
-                                    <S.NavItem href='#/teaching'>Teaching</S.NavItem>
-                                    <S.NavItem href='#/contact'>Contact</S.NavItem>
+                                    <S.NavItem><NavLink exact activeClassName='selected' to='/'>Home</NavLink></S.NavItem>
+                                    <S.NavItem><NavLink exact activeClassName='selected' to='/research'>Research</NavLink></S.NavItem>
+                                    <S.NavItem><NavLink exact activeClassName='selected' to='/teaching'>Teaching</NavLink></S.NavItem>
+                                    <S.NavItem><NavLink exact activeClassName='selected' to='/contact'>Contact</NavLink></S.NavItem>
                                 </S.Nav>
                             </S.NavContainer>
                         </S.Container>

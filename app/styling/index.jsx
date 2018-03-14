@@ -38,6 +38,10 @@ injectGlobal`
 
 export const Banner = styled.div`
     background-color: #43A047;
+    ${media.phone`
+        width: 100%;
+        padding-bottom: 2rem;
+    `}
 `;
 
 export const NavContainer = styled.div`
@@ -45,6 +49,11 @@ export const NavContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     color: white;
+    padding: 0 2rem;
+    ${media.phone`
+        flex-direction: column;
+        padding: 0;
+    `}
     a {
         text-decoration: none;
         color: white;
@@ -57,23 +66,43 @@ export const NavContainer = styled.div`
 
 export const Nav = styled.div`
     float: right;
+    ${media.phone`
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    `}
 `;
 
 export const NavItem = styled.a`
     margin-left: 2rem;
+    .selected {
+        text-decoration: underline;
+    }
+    ${media.phone`
+        margin: 0px 1rem; 
+    `}
 `;
 
 export const Img = styled.img`
     float:right;
     max-width: 470px;
     padding-left: 2rem;
+    ${media.phone`
+        width: 100%;
+        float: none;
+        padding: 0;
+    `}
 `;
 
 export const Container = styled.div`
     max-width: 960px;
     margin: 0 auto;
+    ${media.phone`
+        width: 100%;
+        margin: 0;
+    `}
 `;
 
 export const PageContent = styled.div`
-    margin: 2rem 0;
+    margin: 2rem;
 `;
