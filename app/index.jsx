@@ -42,10 +42,10 @@ class Home extends Component {
         return (
             <div>
                 <S.Img src='https://i.imgur.com/KypHy4z.jpg'/>
-                <p>I am a PhD candidate in Demography at the <a href='http://www.lse.ac.uk/'>London School of Economics and Political Science (LSE)</a>. Before my PhD, I completed a BSc in Economics at the <a href='https://www.essex.ac.uk/'>University of Essex</a> and MSc’s in Population and Development and Social Research Methods at the LSE. In 2017, I conducted an Economic and Social Research Council (ESRC) funded research visit at the Graduate School of Public Health at <a href='http://health.snu.ac.kr/en'>Seoul National University in South Korea</a>.</p>
+                <p>I am a PhD candidate in Demography at the <a href='http://www.lse.ac.uk/'>London School of Economics and Political Science (LSE)</a>. Before my PhD, I completed a BSc in Economics at the <a href='https://www.essex.ac.uk/'>University of Essex</a> and MSc’s in Population and Development and Social Research Methods at the LSE. In 2017, I conducted an Economic and Social Research Council (ESRC) funded research visit at the <a href='http://health.snu.ac.kr/en'>Graduate School of Public Health</a>. at Seoul National University in South Korea</p>
                 <p>My <a href='#/research'>research</a> is broadly on individual ageing, with a focus on the interactions between the societal context in which older people live and their participation in socially productive roles. For my PhD thesis, I am using longitudinal survey data to analyse intergenerational transfers of support and participation in paid work and family care among middle-aged and older people in Italy and South Korea.</p>
                 <p>My primary methods of analysis include multilevel models, multivariate analysis and causal inference methods. My <a href='#/teaching'>teaching</a> at the LSE also reflects my interest in quantitative social science research methods.</p>
-                <p>I am a member of the <a href='http://www.lse.ac.uk/social-policy/research/Research-clusters/ALPHA'>Ageing, Lifecourse and Population Health Analysis - ALPHA</a> group.</p>
+                <p>I am a member of the Ageing, Lifecourse and Population Health Analysis <a href='http://www.lse.ac.uk/social-policy/research/Research-clusters/ALPHA'>(ALPHA)</a> group.</p>
                 <p>For more information, please <a href='mailto:g.floridi@lse.ac.uk?Subject=Hello'>get in touch</a> or download a copy of <a href='https://drive.google.com/file/d/1UJJkayEwCxR5YIRV2G_Tt-hnwmv2Bq8O/view?usp=sharing'>my CV</a>.</p>
             </div>
         );
@@ -57,9 +57,9 @@ class Research extends Component {
         return (
             <div>
                 <h2>Publications</h2>
-                <p><a href='https://www.tandfonline.com/doi/full/10.1080/21582041.2018.1448942'>Floridi, G. (2018): Social policies and intergenerational support in Italy and South Korea, Contemporary Social Science, published online: 12/03/2018. DOI: 10.1080/21582041.2018.1448942</a></p>
+                <p>Floridi, G. (2018): Social policies and intergenerational support in Italy and South Korea, Contemporary Social Science, published online: 12/03/2018. <a href='https://www.tandfonline.com/doi/full/10.1080/21582041.2018.1448942'>DOI: 10.1080/21582041.2018.1448942</a></p>
                 <h2>Work in progress</h2>
-                <p>Floridi, G.: Family matters: Comparing the predictors of paid work and informal caregiving after age 50 in Italy and South Korea. Submitted to the Journal of Gerontology: Series B (Social Sciences).</p>
+                <p>Floridi, G.: Family matters: Comparing the predictors of paid work and informal caregiving after age 50 in Italy and South Korea. In preparation.</p>
                 <p>Floridi, G. & Lauderdale, B.: Self-discovery method for supervised measurement: An application to the concept of ‘productive ageing’. In preparation</p>
                 <h2>Selected conference presentations</h2>
                 <h4>“Family matters: Comparing the predictors of paid work and informal caregiving after age 50 in Italy and South Korea”</h4>
@@ -111,7 +111,6 @@ class Contact extends Component {
             <div>
                 <h4>Address:</h4>
                 <p>
-                    Ginevra Floridi<br/>
                     Department of Social Policy,<br/>
                     2nd Floor, Old Building,<br/>
                     London School of Economics and Political Science,<br/>
