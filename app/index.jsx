@@ -1,6 +1,7 @@
 import { render, h, Component } from 'preact';
 import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
+import * as S from 'styling';
 
 import 'preact/devtools';
 
@@ -8,19 +9,21 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div>
-                    <h1>Ginevra Floridi</h1>
-                    <div>
-                        <a href='#/'>Home</a>
-                        <a href='#/research'>Research</a>
-                        <a href='#/teaching'>Teaching</a>
-                        <a href='#/contact'>Contact</a>
-                    </div>
+                <S.Container>
+                    <S.NavContainer>
+                        <h1>Ginevra Floridi</h1>
+                        <S.Nav>
+                            <S.NavItem href='#/'>Home</S.NavItem>
+                            <S.NavItem href='#/research'>Research</S.NavItem>
+                            <S.NavItem href='#/teaching'>Teaching</S.NavItem>
+                            <S.NavItem href='#/contact'>Contact</S.NavItem>
+                        </S.Nav>
+                    </S.NavContainer>
                     <Route exact path="/" component={Home}/>
                     <Route path="/research" component={Research}/>
                     <Route path="/teaching" component={Teaching}/>
                     <Route path="/contact" component={Contact}/>
-                </div>
+                </S.Container>
             </Router>
         );
     }
@@ -30,7 +33,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <img src='https://i.imgur.com/KypHy4z.jpg'/>
+                <S.Img src='https://i.imgur.com/KypHy4z.jpg'/>
                 <p>I am a PhD candidate in Demography at the <a href='http://www.lse.ac.uk/'>London School of Economics and Political Science (LSE)</a>. Before my PhD, I completed a BSc in Economics at the <a href='https://www.essex.ac.uk/'>University of Essex</a> and MSc’s in Population and Development and Social Research Methods at the LSE. In 2017, I conducted an Economic and Social Research Council (ESRC) funded research visit at the Graduate School of Public Health at <a href='http://health.snu.ac.kr/en'>Seoul National University in South Korea</a>.</p>
                 <p>My <a href='#/research'>research</a> is broadly on individual ageing, with a focus on the interactions between the societal context in which older people live and their participation in socially productive roles. For my PhD thesis, I am using longitudinal survey data to analyse intergenerational transfers of support and participation in paid work and family care among middle-aged and older people in Italy and South Korea.</p>
                 <p>My primary methods of analysis include multilevel models, multivariate analysis and causal inference methods. My <a href='#/teaching'>teaching</a> at the LSE also reflects my interest in quantitative social science research methods.</p>
