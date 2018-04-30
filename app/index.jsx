@@ -64,8 +64,8 @@ class Research extends Component {
                 <h2>Selected conference presentations</h2>
                 <h4>“Family matters: Comparing the predictors of paid work and informal caregiving after age 50 in Italy and South Korea”</h4>
                 <ul>
-                    <li>Forthcoming: Population Association of America Annual Conference, 26th – 28th April 2018, Denver, United States</li>
                     <li>Forthcoming: European Population Conference, 6th – 9th June 2018, Brussels, Belgium</li>
+                    <li>Population Association of America Annual Conference, 26th – 28th April 2018, Denver, United States</li>
                 </ul>
                 <h4>“Working and informal caregiving among older Italian and South Korean parents”</h4>
                 <ul>
@@ -75,7 +75,7 @@ class Research extends Component {
                 <ul>
                     <li>International Population Conference, International Union for the Scientific Study of Population, 29th October – 4th November 2017, Cape Town, South Africa</li>
                     <li>British Society for Population Studies Annual Meeting, 6th– 8th September 2017, Liverpool, UK</li>
-                    <li>Korean Population Association Bi-annual Meeting, 21st July 2017, Seoul, South Korea</li>
+                    <li>Korean Population Association Biennial Meeting, 21st July 2017, Seoul, South Korea</li>
                 </ul>
             </div>
         );
