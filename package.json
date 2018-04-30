@@ -17,6 +17,7 @@
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.0.0",
     "redux": "^3.7.2",
+    "request": "^2.85.0",
     "styled-components": "^1.4.4"
   },
   "devDependencies": {
