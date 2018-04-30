@@ -2,8 +2,8 @@ import { render, h, Component } from 'preact';
 import React from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import * as S from 'styling';
-import { observable } from 'mobx';
-import { observer } from 'mobx-react';
+import { extendObservable } from 'mobx';
+import { Provider, inject, observer } from 'mobx-react';
 
 import 'preact/devtools';
 
@@ -45,33 +45,38 @@ class ComponentWithData extends Component {
     this.getData = this.getData.bind(this);
     this.createMarkup = this.createMarkup.bind(this);
     this.renderMain = this.renderMain.bind(this);
-    this.state = { data: null };
   }
   getData(id) {
-    if (this.state.data) return null;
-    const url = `/blob/${id}`;
+    if (this.props.data[this.id]) return null;
+    const url = `/blob/${this.id}`;
     fetch(url)
       .then(response => response.blob())
       .then(response => {
         var reader = new FileReader();
         reader.onload = () => {
-          this.setState({data: reader.result});
+          this.props.data[this.id] = reader.result;
         };
         reader.readAsText(response);
       });
   }
   createMarkup() {
-    return { __html: this.state.data };
+    return { __html: this.props.data[this.id] };
   }
   render() {
-    if (!this.state.data) return (<div></div>);
+    if (!this.props.data[this.id]) return (<div></div>);
     return this.renderMain();
   }
 }
 
+@inject("data")
+@observer
 class Home extends ComponentWithData {
+  constructor(props) {
+    super(props);
+    this.id = "homepage";
+  }
   componentWillMount() {
-    this.getData("homepage");
+    this.getData();
   }
   renderMain() {
     return (
@@ -83,7 +88,13 @@ class Home extends ComponentWithData {
   }
 }
 
+@inject("data")
+@observer
 class Research extends ComponentWithData {
+  constructor(props) {
+    super(props);
+    this.id = "research";
+  }
   componentWillMount() {
     this.getData("research");
   }
@@ -94,7 +105,13 @@ class Research extends ComponentWithData {
   }
 }
 
+@inject("data")
+@observer
 class Teaching extends ComponentWithData {
+  constructor(props) {
+    super(props);
+    this.id = "teaching";
+  }
   componentWillMount() {
     this.getData("teaching");
   }
@@ -105,7 +122,13 @@ class Teaching extends ComponentWithData {
   }
 }
 
+@inject("data")
+@observer
 class Contact extends ComponentWithData {
+  constructor(props) {
+    super(props);
+    this.id = "contact";
+  }
   componentWillMount() {
     this.getData("contact");
   }
@@ -116,7 +139,22 @@ class Contact extends ComponentWithData {
   }
 }
 
+class Data {
+  constructor() {
+    extendObservable(this, {
+      homepage: undefined,
+      research: undefined,
+      teaching: undefined,
+      contact: undefined
+    });
+  }
+}
+
+const data = new Data();
+
 render(
-        <App/>,
+    <Provider data={data}>
+      <App/>
+    </Provider>,
     document.getElementById('root')
 );
