@@ -2,6 +2,8 @@ import { render, h, Component } from 'preact';
 import React from 'react';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import * as S from 'styling';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 
 import 'preact/devtools';
 
@@ -46,7 +48,8 @@ class ComponentWithData extends Component {
     this.state = { data: null };
   }
   getData(id) {
-    const url = `https://www.googleapis.com/drive/v3/files/${id}?key=AIzaSyAxR92_GtCJz2K7IQANqGpaKellvj1W3cE&alt=media`;
+    if (this.state.data) return null;
+    const url = `/blob/${id}`;
     fetch(url)
       .then(response => response.blob())
       .then(response => {
@@ -68,7 +71,7 @@ class ComponentWithData extends Component {
 
 class Home extends ComponentWithData {
   componentWillMount() {
-    this.getData("1acgy4aJ80z70Qa4G0XsNAJUXf6AAOWXv");
+    this.getData("homepage");
   }
   renderMain() {
     return (
@@ -82,7 +85,7 @@ class Home extends ComponentWithData {
 
 class Research extends ComponentWithData {
   componentWillMount() {
-    this.getData("15bBeDOieDGXmm4O5vrTy18YuJEOHsQvt");
+    this.getData("research");
   }
   renderMain() {
     return (
@@ -93,7 +96,7 @@ class Research extends ComponentWithData {
 
 class Teaching extends ComponentWithData {
   componentWillMount() {
-    this.getData("14fDsHAz2wr0JAVSMz8zsktcoNRYHIibw");
+    this.getData("teaching");
   }
   renderMain() {
     return (
@@ -104,7 +107,7 @@ class Teaching extends ComponentWithData {
 
 class Contact extends ComponentWithData {
   componentWillMount() {
-    this.getData("1aFVsP3yMmT09x-1k38ppSODSWZ28L0Wi");
+    this.getData("contact");
   }
   renderMain() {
     return (

@@ -11,6 +11,8 @@
   "author": "Elliott Thompson",
   "license": "ISC",
   "dependencies": {
+    "mobx": "^4.2.0",
+    "mobx-react": "^5.0.0",
     "preact": "^8.2.1",
     "preact-compat": "^3.17.0",
     "prop-types": "^15.5.8",

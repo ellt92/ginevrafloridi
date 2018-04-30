@@ -4041,6 +4041,10 @@ var _styling = __webpack_require__(26);
 
 var S = _interopRequireWildcard(_styling);
 
+var _mobx = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"mobx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _mobxReact = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"mobx-react\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
 __webpack_require__(27);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -4168,7 +4172,8 @@ var ComponentWithData = function (_Component2) {
     value: function getData(id) {
       var _this3 = this;
 
-      var url = 'https://www.googleapis.com/drive/v3/files/' + id + '?key=AIzaSyAxR92_GtCJz2K7IQANqGpaKellvj1W3cE&alt=media';
+      if (this.state.data) return null;
+      var url = '/blob/' + id;
       fetch(url).then(function (response) {
         return response.blob();
       }).then(function (response) {
@@ -4207,7 +4212,7 @@ var Home = function (_ComponentWithData) {
   _createClass(Home, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.getData("1acgy4aJ80z70Qa4G0XsNAJUXf6AAOWXv");
+      this.getData("homepage");
     }
   }, {
     key: 'renderMain',
@@ -4236,7 +4241,7 @@ var Research = function (_ComponentWithData2) {
   _createClass(Research, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.getData("15bBeDOieDGXmm4O5vrTy18YuJEOHsQvt");
+      this.getData("research");
     }
   }, {
     key: 'renderMain',
@@ -4260,7 +4265,7 @@ var Teaching = function (_ComponentWithData3) {
   _createClass(Teaching, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.getData("14fDsHAz2wr0JAVSMz8zsktcoNRYHIibw");
+      this.getData("teaching");
     }
   }, {
     key: 'renderMain',
@@ -4284,7 +4289,7 @@ var Contact = function (_ComponentWithData4) {
   _createClass(Contact, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.getData("1aFVsP3yMmT09x-1k38ppSODSWZ28L0Wi");
+      this.getData("contact");
     }
   }, {
     key: 'renderMain',
