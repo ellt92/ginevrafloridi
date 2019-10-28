@@ -1,42 +1,58 @@
-import { render, h, Component } from 'preact';
-import React from 'react';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
-import * as S from 'styling';
-import { extendObservable } from 'mobx';
-import { Provider, inject, observer } from 'mobx-react';
+import { render, h, Component } from "preact";
+import React from "react";
+import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import * as S from "styling";
+import { extendObservable } from "mobx";
+import { Provider, inject, observer } from "mobx-react";
 
-import 'preact/devtools';
+import "preact/devtools";
 
 class App extends Component {
-    render() {
-        return (
-            <Router>
-                <div>
-                    <S.Banner>
-                        <S.Container>
-                            <S.NavContainer>
-                                <h1>Ginevra Floridi</h1>
-                                <S.Nav>
-                                    <S.NavItem><NavLink exact activeClassName='selected' to='/'>Home</NavLink></S.NavItem>
-                                    <S.NavItem><NavLink exact activeClassName='selected' to='/research'>Research</NavLink></S.NavItem>
-                                    <S.NavItem><NavLink exact activeClassName='selected' to='/teaching'>Teaching</NavLink></S.NavItem>
-                                    <S.NavItem><NavLink exact activeClassName='selected' to='/contact'>Contact</NavLink></S.NavItem>
-                                </S.Nav>
-                            </S.NavContainer>
-                        </S.Container>
-                    </S.Banner>
-                    <S.Container>
-                        <S.PageContent>
-                            <Route exact path="/" component={Home}/>
-                            <Route path="/research" component={Research}/>
-                            <Route path="/teaching" component={Teaching}/>
-                            <Route path="/contact" component={Contact}/>
-                        </S.PageContent>
-                    </S.Container>
-                </div>
-            </Router>
-        );
-    }
+  render() {
+    return (
+      <Router>
+        <div>
+          <S.Banner>
+            <S.Container>
+              <S.NavContainer>
+                <h1>Ginevra Floridi</h1>
+                <S.Nav>
+                  <S.NavItem>
+                    <NavLink exact activeClassName="selected" to="/">
+                      Home
+                    </NavLink>
+                  </S.NavItem>
+                  <S.NavItem>
+                    <NavLink exact activeClassName="selected" to="/research">
+                      Research
+                    </NavLink>
+                  </S.NavItem>
+                  <S.NavItem>
+                    <NavLink exact activeClassName="selected" to="/teaching">
+                      Teaching
+                    </NavLink>
+                  </S.NavItem>
+                  <S.NavItem>
+                    <NavLink exact activeClassName="selected" to="/contact">
+                      Contact
+                    </NavLink>
+                  </S.NavItem>
+                </S.Nav>
+              </S.NavContainer>
+            </S.Container>
+          </S.Banner>
+          <S.Container>
+            <S.PageContent>
+              <Route exact path="/" component={Home} />
+              <Route path="/research" component={Research} />
+              <Route path="/teaching" component={Teaching} />
+              <Route path="/contact" component={Contact} />
+            </S.PageContent>
+          </S.Container>
+        </div>
+      </Router>
+    );
+  }
 }
 
 class ComponentWithData extends Component {
@@ -63,7 +79,7 @@ class ComponentWithData extends Component {
     return { __html: this.props.data[this.id] };
   }
   render() {
-    if (!this.props.data[this.id]) return (<div></div>);
+    if (!this.props.data[this.id]) return <div />;
     return this.renderMain();
   }
 }
@@ -80,10 +96,10 @@ class Home extends ComponentWithData {
   }
   renderMain() {
     return (
-        <div>
-          <S.Img src='https://i.imgur.com/KypHy4z.jpg'/>
-          <div dangerouslySetInnerHTML={this.createMarkup()}></div>
-        </div>
+      <div>
+        <S.Img src="https://i.imgur.com/aCgIj79.jpg" />
+        <div dangerouslySetInnerHTML={this.createMarkup()} />
+      </div>
     );
   }
 }
@@ -99,9 +115,7 @@ class Research extends ComponentWithData {
     this.getData("research");
   }
   renderMain() {
-    return (
-      <div dangerouslySetInnerHTML={this.createMarkup()}></div>
-    );
+    return <div dangerouslySetInnerHTML={this.createMarkup()} />;
   }
 }
 
@@ -116,9 +130,7 @@ class Teaching extends ComponentWithData {
     this.getData("teaching");
   }
   renderMain() {
-    return (
-      <div dangerouslySetInnerHTML={this.createMarkup()}></div>
-    );
+    return <div dangerouslySetInnerHTML={this.createMarkup()} />;
   }
 }
 
@@ -133,9 +145,7 @@ class Contact extends ComponentWithData {
     this.getData("contact");
   }
   renderMain() {
-    return (
-      <div dangerouslySetInnerHTML={this.createMarkup()}></div>
-    );
+    return <div dangerouslySetInnerHTML={this.createMarkup()} />;
   }
 }
 
@@ -153,8 +163,8 @@ class Data {
 const data = new Data();
 
 render(
-    <Provider data={data}>
-      <App/>
-    </Provider>,
-    document.getElementById('root')
+  <Provider data={data}>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
